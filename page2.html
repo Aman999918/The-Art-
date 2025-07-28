@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>إدارة المنتجات - مصنع الأمان</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+    <link rel="stylesheet" href="styles.css"> 
+
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+    <header id="mainHeader" class="bg-white shadow p-4 flex items-center justify-between">
+
+        <div class="flex items-center space-x-4 rtl:space-x-reverse">
+
+            <div class="relative">
+
+                <button id="menuDropdownButton" class="text-xl p-1 rounded-full text-gray-700">
+
+                    <span id="menuDropdownIcon" class="material-symbols-outlined">arrow_drop_down</span>
+
+                </button>
+
+                <div id="menuDropdown" class="dropdown-menu">
+
+                    <a href="Index.html" class="flex items-center"><span class="material-symbols-outlined">home</span> الرئيسية</a>
+
+                    <a href="#" class="flex items-center"><span class="material-symbols-outlined">shopping_cart</span> إدارة الطلبات</a>
+
+                    <a href="#" class="flex items-center"><span class="material-symbols-outlined">settings</span> الإعدادات</a>
+
+                    <a href="#" class="flex items-center"><span class="material-symbols-outlined">info</span> عن التطبيق</a>
+
+                    <a href="#" id="manageAccountLink" class="flex items-center"><span class="material-symbols-outlined">login</span> تسجيل الدخول / إدارة الحساب</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <h1 class="text-xl font-bold text-center text-gray-800 flex-grow text-center">إدارة المنتجات - مصنع الأمان</h1>
+
+        <div class="flex items-center gap-4">
+
+            <button id="modeToggleButton" class="text-xl p-1 rounded-full text-gray-700">
+
+                <span id="modeToggleIcon" class="material-symbols-outlined">light_mode</span>
+
+            </button>
+
+        </div>
+
+    </header>
+
+    <main class="container mx-auto py-8">
+
+        <h2 class="text-2xl font-bold text-center text-gray-800 mb-6" style="color: var(--primary-red);">المنتجات</h2>
+
+        <section id="productFormSection" class="mb-8">
+
+            <h3 class="text-xl font-semibold text-gray-700 mb-4 px-4">إضافة منتج جديد</h3>
+
+            <form id="productForm" class="space-y-4">
+
+                <div class="input-section">
+
+                    <div class="input-section-top">
+
+                        <span class="material-symbols-outlined">label</span>
+
+                        <div class="section-divider-line"></div>
+
+                    </div>
+
+                    <div class="input-section-body">
+
+                        <h4>اسم المنتج</h4>
+
+                        <p class="text-gray-600 text-sm">أدخل اسمًا واضحًا ومختصرًا للمنتج.</p>
+
+                        <input type="text" id="productName" **required** class="mt-1 block w-full border border-gray-300 rounded p-2 text-gray-800">
+
+                    </div>
+
+                </div>
+
+                <div class="input-section">
+
+                    <div class="input-section-top">
+
+                        <span class="material-symbols-outlined">description</span>
+
+                        <div class="section-divider-line"></div>
+
+                    </div>
+
+                    <div class="input-section-body">
+
+                        <h4>وصف المنتج</h4>
+
+                        <p class="text-gray-600 text-sm">قدم وصفًا تفصيليًا للمنتج وميزاته.</p>
+
+                        <textarea id="productDescription" rows="3" class="mt-1 block w-full border border-gray-300 rounded p-2 text-gray-800"></textarea>
+
+                    </div>
+
+                </div>
+
+                <div class="input-section">
+
+                    <div class="input-section-top">
+
+                        <span class="material-symbols-outlined">attach_money</span>
+
+                        <div class="section-divider-line"></div>
+
+                    </div>
+
+                    <div class="input-section-body">
+
+                        <h4>سعر المنتج</h4>
+
+                        <p class="text-gray-600 text-sm">حدد سعر البيع للمنتج بالريال السعودي.</p>
+
+                        <input type="number" id="productPrice" step="0.01" class="mt-1 block w-full border border-gray-300 rounded p-2 text-gray-800">
+
+                    </div>
+
+                </div>
+
+                <div class="input-section">
+
+                    <div class="input-section-top">
+
+                        <span class="material-symbols-outlined">discount</span>
+
+                        <div class="section-divider-line"></div>
+
+                    </div>
+
+                    <div class="input-section-body">
+
+                        <h4>نسبة الخصم (%)</h4>
+
+                        <p class="text-gray-600 text-sm">أدخل نسبة الخصم على المنتج (مثلاً: 10 للخصم 10%).</p>
+
+                        <input type="number" id="productDiscount" min="0" max="100" step="1" value="0" class="mt-1 block w-full border border-gray-300 rounded p-2 text-gray-800">
+
+                    </div>
+
+                </div>
+
+                <div class="input-section">
+
+                    <div class="input-section-top">
+
+                        <span class="material-symbols-outlined">category</span>
+
+                        <div class="section-divider-line"></div>
+
+                    </div>
+
+                    <div class="input-section-body">
+
+                        <h4>تصنيف المنتج</h4>
+
+                        <p class="text-gray-600 text-sm">اختر الفئة التي ينتمي إليها المنتج.</p>
+
+                        <select id="productCategory" class="mt-1 block w-full border border-gray-300 rounded p-2 text-gray-800">
+
+                            <option value="">اختر تصنيفًا...</option>
+
+                            <option value="ادوات السلامة">أدوات السلامة</option>
+
+                            <option value="الزي الموحد">الزي الموحد</option>
+
+                            <option value="معدات اطفاء">معدات إطفاء</option>
+
+                            <option value="لافتات ارشادية">لافتات إرشادية</option>
+
+                            <option value="أخرى">أخرى</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="input-section">
+
+                    <div class="input-section-top">
+
+                        <span class="material-symbols-outlined">upload_file</span>
+
+                        <div class="section-divider-line"></div>
+
+                    </div>
+
+                    <div class="input-section-body">
+
+                        <h4>صورة المنتج</h4>
+
+                        <p class="text-gray-600 text-sm">اختر صورة للمنتج من جهازك (اختياري).</p>
+
+                        <input type="file" id="productImageInput" accept="image/*" class="mt-1 block w-full text-gray-800 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary-red file:text-white hover:file:bg-dark-red">
+
+                        <div id="imagePreviewContainer" class="mt-2 text-center hidden">
+
+                            <img id="imagePreview" src="#" alt="معاينة الصورة" class="max-w-xs max-h-32 mx-auto border border-gray-300 rounded object-contain">
+
+                            <p id="imageFileName" class="text-gray-600 text-sm mt-1"></p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="input-section">
+
+                    <div class="input-section-top">
+
+                        <span class="material-symbols-outlined">star_rate</span>
+
+                        <div class="section-divider-line"></div>
+
+                    </div>
+
+                    <div class="input-section-body">
+
+                        <h4>تقييم المنتج</h4>
+
+                        <p class="text-gray-600 text-sm">حدد التقييم الافتراضي للمنتج من 1 إلى 5 نجوم.</p>
+
+                        <input type="number" id="productRating" min="1" max="5" step="0.1" value="3.5" class="mt-1 block w-full border border-gray-300 rounded p-2 text-gray-800">
+
+                    </div>
+
+                </div>
+
+                <div class="flex space-x-4 rtl:space-x-reverse mt-6 px-4">
+
+                    <button type="submit" id="submitButton" class="flex-1 text-white py-2 px-4 rounded" style="background-color: var(--primary-red); hover:background-color: var(--dark-red);">
+
+                        إضافة منتج
+
+                    </button>
+
+                    <button type="button" id="cancelEditButton" class="flex-1 bg-gray-300 text-gray-800 py-2 px-4 rounded hover:bg-gray-400 hidden">
+
+                        إلغاء التعديل
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+        <section class="p-6 rounded shadow px-4">
+
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">المنتجات الحالية</h3>
+
+            <div id="productsList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <p class="text-center text-gray-500 col-span-full" id="noProductsMessage">لا توجد منتجات حتى الآن.</p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="text-white p-6 text-center mt-8" style="background-color: #000000;">
+
+        <p class="text-sm opacity-70">&copy; 2025 مصنع الأمان. جميع الحقوق محفوظة.</p>
+
+        <p class="mt-2 text-xs opacity-60" id="userIdDisplay">هوية المستخدم: تحميل...</p>
+
+    </footer>
+
+    <div id="universalModal" class="modal-overlay">
+
+        <div class="modal-content">
+
+            <h3 id="modalTitle" class="text-lg font-bold mb-4"></h3>
+
+            <div id="modalContent" class="text-sm mb-4"></div>
+
+            <div id="modalActions" class="flex justify-center space-x-4"></div>
+
+            <div id="loadingIndicator" class="hidden text-center text-blue-600 text-sm mt-4">
+
+                <span class="material-symbols-outlined animate-spin mr-2">progress_activity</span> جاري التنفيذ...
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="productDetailsModal" class="modal-overlay">
+
+        <div class="modal-content">
+
+            <h3 id="productDetailsTitle" class="text-xl font-bold mb-4" style="color: var(--primary-red);"></h3>
+
+            <p id="productDetailsCategory" class="text-gray-700 mb-2"></p>
+
+            <img id="productDetailsImage" src="" alt="صورة المنتج" class="hidden w-full max-h-64 object-contain mx-auto my-4">
+
+            <p id="productDetailsDescription" class="text-gray-600 text-sm mb-4"></p>
+
+            <div id="productDetailsPrice" class="text-gray-800 font-bold mb-2"></div>
+
+            <div id="productDetailsDiscount" class="text-green-600 font-bold mb-2 hidden"></div>
+
+            <div id="productDetailsRating" class="text-yellow-500 mb-4"></div>
+
+            <div class="flex justify-end mt-4">
+
+                <button id="closeDetailsModalBtn" class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600">إغلاق</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
