@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>الرئيسية - مصنع الأمان</title>
+
+    
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+    
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+    <header id="mainHeader" class="bg-white shadow p-4 flex items-center justify-between">
+
+        <div class="flex items-center space-x-4 rtl:space-x-reverse">
+
+            <div class="relative">
+
+                <button id="menuDropdownButton" class="text-xl p-1 rounded-full text-gray-700">
+
+                    <span id="menuDropdownIcon" class="material-symbols-outlined">menu</span>
+
+                </button>
+
+                <div id="menuDropdown" class="dropdown-menu">
+
+                    <a href="index.html" class="flex items-center"><span class="material-symbols-outlined">home</span> الرئيسية</a>
+
+                    <a href="page2.html" class="flex items-center"><span class="material-symbols-outlined">info</span> عن التطبيق</a>
+
+                    <a href="#" class="flex items-center"><span class="material-symbols-outlined">call</span> اتصل بنا</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <h1 class="text-xl font-bold text-gray-800 flex-grow text-center">Aman-safety</h1>
+
+        
+
+        <div class="flex items-center gap-4"> 
+
+            <button id="modeToggleButton" class="text-xl p-1 rounded-full text-gray-700">
+
+                <span id="modeToggleIcon" class="material-symbols-outlined">light_mode</span>
+
+            </button>
+
+        </div>
+
+    </header>
+
+    <main class="container mx-auto py-8 px-4">
+
+        <h2 class="text-2xl font-bold text-center text-gray-800 mb-6" style="color: var(--primary-red);">منتجاتنا</h2>
+
+        <section id="productsList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            </section>
+
+        <p id="noProductsMessage" class="hidden text-center text-gray-500 text-lg mt-8">لا توجد منتجات لعرضها حاليًا.</p>
+
+    </main>
+
+    <footer class="text-white p-6 text-center mt-8" style="background-color: #000000;">
+
+        <p class="text-sm opacity-70">&copy; 2025 مصنع الأمان. جميع الحقوق محفوظة.</p>
+
+    </footer>
+
+    <div id="universalModal" class="modal-overlay">
+
+        <div class="modal-content">
+
+            <h3 id="modalTitle" class="text-lg font-bold mb-4"></h3>
+
+            <div id="modalContent" class="text-sm mb-4"></div>
+
+            <div id="modalActions" class="flex justify-center space-x-4"></div>
+
+            <div id="loadingIndicator" class="hidden text-center text-blue-600 text-sm mt-4">
+
+                <span class="material-symbols-outlined animate-spin mr-2">progress_activity</span> جاري التحميل...
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script type="module" src="script.js"></script>
+
+</body>
+
+</html>
