@@ -1,0 +1,1155 @@
+:root {
+
+    --primary-red: #A30000; /* لون أحمر داكن مستوحى من الشعار */
+
+    --dark-red: #8B0000;
+
+    --light-red: #CD3333; /* أحمر أفتح للاستخدامات الثانوية */
+
+    --primary-blue: #2563EB; /* أزرق للأيقونات عند الضغط */
+
+    --dark-blue: #1E40AF; /* أزرق أغمق للتمرير */
+
+    --light-blue: #8ab4f8; /* أزرق فاتح للوضع الليلي */
+
+    --text-dark: #1f2937; /* رمادي داكن للنصوص */
+
+    --text-light: #d1d5db; /* رمادي فاتح للنصوص في الوضع الليلي */
+
+    --bg-light: #f3f4f6; /* خلفية فاتحة */
+
+    --bg-dark: #111827; /* خلفية داكنة للوضع الليلي */
+
+    --card-light: #ffffff; /* لون البطاقة الفاتح */
+
+    --card-dark: #374151; /* لون البطاقة الداكن */
+
+    --border-light: #e5e7eb; /* لون الحدود الفاتح */
+
+    --border-dark: #4b5563; /* لون الحدود الداكن */
+
+    --green-success: #28a745; /* لون أخضر للخصم */
+
+}
+
+body {
+
+    font-family: sans-serif;
+
+    background-color: var(--bg-light);
+
+    color: var(--text-dark);
+
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
+.modal-overlay {
+
+    background-color: rgba(0, 0, 0, 0.7);
+
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 1000;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: opacity 0.3s ease-in-out;
+
+}
+
+.modal-overlay.active {
+
+    opacity: 1;
+
+    pointer-events: auto;
+
+}
+
+.modal-content {
+
+    background-color: var(--card-light);
+
+    padding: 1.5rem;
+
+    border-radius: 0.5rem;
+
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    max-width: 28rem;
+
+    width: 90%;
+
+    text-align: center;
+
+    color: var(--text-dark); /* لضمان النص الداكن في المودال الفاتح */
+
+}
+
+.modal-content img {
+
+    max-width: 100%;
+
+    height: auto;
+
+    border-radius: 0.25rem;
+
+    margin-top: 1rem;
+
+    margin-bottom: 1rem;
+
+}
+
+/* الوضع الليلي */
+
+body.dark-mode {
+
+    background-color: var(--bg-dark);
+
+    color: var(--text-light);
+
+}
+
+body.dark-mode .modal-content {
+
+    background-color: var(--card-dark);
+
+    color: var(--text-light);
+
+}
+
+/* لا يتم تطبيق bg-white على productFormSection في الوضع الليلي بعد الآن */
+
+body.dark-mode header,
+
+body.dark-mode .product-item.bg-white {
+
+    background-color: var(--card-dark);
+
+    color: var(--text-light);
+
+}
+
+body.dark-mode input,
+
+body.dark-mode textarea,
+
+body.dark-mode select {
+
+    /* أضفنا select هنا */
+
+    background-color: var(--border-dark);
+
+    border-color: var(--border-dark);
+
+    color: var(--text-light);
+
+}
+
+/* تعديل نمط زر الرفع في الوضع الليلي */
+
+body.dark-mode input[type="file"].file\:bg-primary-red {
+
+    --tw-file-bg: var(--light-red);
+
+    /* تغيير لون الخلفية لزر الرفع */
+
+    --tw-file-text: var(--text-light);
+
+    /* تغيير لون النص لزر الرفع */
+
+}
+
+body.dark-mode input[type="file"].file\:bg-primary-red:hover {
+
+    --tw-file-bg: var(--dark-red);
+
+    /* تغيير لون الخلفية لزر الرفع عند التمرير */
+
+}
+
+body.dark-mode footer {
+
+    background-color: #000000;
+
+    /* أسود كامل للتذييل في الوضع الليلي */
+
+    color: var(--text-light);
+
+}
+
+body.dark-mode h1,
+
+body.dark-mode h2,
+
+body.dark-mode h3 {
+
+    color: var(--light-red);
+
+    /* لون أحمر فاتح للعناوين في الوضع الليلي */
+
+}
+
+body.dark-mode .text-gray-700 {
+
+    /* للعناوين في الأقسام */
+
+    color: var(--text-light);
+
+}
+
+body.dark-mode .border-gray-300 {
+
+    border-color: var(--border-dark);
+
+}
+
+/* الأيقونات في الوضع الليلي */
+
+body.dark-mode .material-symbols-outlined {
+
+    color: var(--light-red);
+
+    /* الأيقونات باللون الأحمر الفاتح في الوضع الليلي */
+
+}
+
+body.dark-mode .material-symbols-outlined:hover {
+
+    color: var(--primary-blue);
+
+    /* الأيقونات باللون الأزرق عند التمرير في الوضع الليلي */
+
+}
+
+/* تأثير الأيقونات (اللون الأحمر للأيقونات، الأزرق عند الضغط) */
+
+header .material-symbols-outlined {
+
+    color: var(--primary-red);
+
+    transition: color 0.2s ease-in-out;
+
+    cursor: pointer;
+
+}
+
+header .material-symbols-outlined:hover {
+
+    color: var(--primary-blue);
+
+}
+
+header button:active .material-symbols-outlined,
+
+header a:active .material-symbols-outlined {
+
+    color: var(--primary-blue);
+
+    /* تغيير اللون إلى الأزرق عند الضغط */
+
+}
+
+/* القائمة المنسدلة */
+
+.dropdown-menu {
+
+    position: absolute;
+
+    background-color: var(--card-light);
+
+    border-radius: 0.5rem;
+
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    min-width: 180px;
+
+    z-index: 10;
+
+    /* زيادة Z-index لضمان ظهورها فوق العناصر الأخرى */
+
+    right: 0;
+
+    /* لضمان ظهورها بشكل صحيح بجانب الزر في RTL */
+
+    margin-top: 0.5rem;
+
+    opacity: 0;
+
+    transform: translateY(-10px);
+
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+
+    pointer-events: none;
+
+}
+
+.dropdown-menu.show {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+    pointer-events: auto;
+
+}
+
+.dropdown-menu a {
+
+    color: var(--text-dark);
+
+    padding: 12px 16px;
+
+    text-decoration: none;
+
+    display: flex;
+
+    align-items: center;
+
+    transition: background-color 0.2s ease, color 0.2s ease;
+
+}
+
+.dropdown-menu a:hover {
+
+    background-color: var(--bg-light);
+
+    color: var(--primary-red);
+
+}
+
+.dropdown-menu a .material-symbols-outlined {
+
+    margin-left: 8px;
+
+    /* مسافة بين النص والأيقونة في RTL */
+
+    margin-right: 0;
+
+    color: var(--primary-red);
+
+    /* لون الأيقونات داخل القائمة */
+
+}
+
+.dropdown-menu a:hover .material-symbols-outlined {
+
+    color: var(--primary-blue);
+
+    /* لون الأيقونات داخل القائمة عند التمرير */
+
+}
+
+/* الوضع الليلي للقائمة المنسدلة */
+
+body.dark-mode .dropdown-menu {
+
+    background-color: var(--card-dark);
+
+}
+
+body.dark-mode .dropdown-menu a {
+
+    color: var(--text-light);
+
+}
+
+body.dark-mode .dropdown-menu a:hover {
+
+    background-color: var(--border-dark);
+
+    color: var(--light-red);
+
+}
+
+body.dark-mode .dropdown-menu a .material-symbols-outlined {
+
+    color: var(--light-red);
+
+}
+
+body.dark-mode .dropdown-menu a:hover .material-symbols-outlined {
+
+    color: var(--primary-blue);
+
+}
+
+/* أنماط الأقسام الجديدة لنموذج المنتج (أصبحت بطاقات) */
+
+.input-section {
+
+    display: flex;
+
+    flex-direction: column;
+
+    /* لجعل العناصر تتكدس عمودياً */
+
+    gap: 0.5rem;
+
+    /* مسافة بين العناصر داخل القسم */
+
+    padding: 1.5rem;
+
+    /* padding موحد لجميع جوانب البطاقة */
+
+    margin-bottom: 1rem;
+
+    /* مسافة بين البطاقات */
+
+    background-color: var(--card-light);
+
+    /* خلفية بيضاء للبطاقة */
+
+    border-radius: 0.5rem;
+
+    /* حواف مستديرة للبطاقة */
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    /* ظل خفيف للبطاقة */
+
+    width: 100%;
+
+    /* تأكد أن العنصر يملأ عرضه بالكامل */
+
+    box-sizing: border-box;
+
+    /* لضمان أن padding لا يضيف عرضًا إضافيًا */
+
+    /* إضافة انتقال سلس لتغيرات الألوان */
+
+    transition: all 0.3s ease;
+
+}
+
+/* في الوضع الليلي */
+
+body.dark-mode .input-section {
+
+    background-color: var(--card-dark);
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+    /* ظل أغمق قليلاً في الوضع الليلي */
+
+}
+
+/* إزالة الخط الفاصل السفلي من كل قسم (لأن كل قسم أصبح بطاقة منفصلة) */
+
+.input-section-bottom-divider {
+
+    display: none;
+
+}
+
+/* الأنماط الجديدة للجزء العلوي من القسم (الأيقونة والخط) */
+
+.input-section-top {
+
+    display: flex;
+
+    align-items: center;
+
+    /* لمحاذاة الأيقونة والخط أفقياً */
+
+    justify-content: flex-end;
+
+    /* لدفع الأيقونة إلى اليمين في RTL */
+
+    gap: 0.5rem;
+
+    /* مسافة بين الأيقونة والخط */
+
+    margin-bottom: 0.5rem;
+
+    /* مسافة بين الجزء العلوي والجسم */
+
+}
+
+.input-section-top .material-symbols-outlined {
+
+    font-size: 1.75rem;
+
+    /* حجم الأيقونة */
+
+    color: var(--primary-red);
+
+    /* لون الأيقونة الافتراضي */
+
+    transition: color 0.3s ease;
+
+    /* إضافة انتقال للون الأيقونة */
+
+}
+
+body.dark-mode .input-section-top .material-symbols-outlined {
+
+    color: var(--light-red);
+
+    /* لون الأيقونة الافتراضي في الوضع الليلي */
+
+}
+
+/* النمط الجديد للخط الأفقي في الجزء العلوي */
+
+.input-section-top .section-divider-line {
+
+    flex-grow: 1;
+
+    /* لجعل الخط يمتد ليملأ المساحة المتبقية */
+
+    height: 2px;
+
+    /* سمك الخط */
+
+    background-color: var(--primary-red);
+
+    /* لون الخط الافتراضي */
+
+    margin-left: 0.75rem;
+
+    /* مسافة بين الخط وبداية القسم من اليسار في RTL */
+
+    transition: background-color 0.3s ease;
+
+    /* إضافة انتقال للون الخط */
+
+}
+
+body.dark-mode .input-section-top .section-divider-line {
+
+    background-color: var(--light-red);
+
+    /* لون الخط الافتراضي في الوضع الليلي */
+
+}
+
+/* أنماط جسم القسم (العنوان والوصف وحقل الإدخال) */
+
+.input-section-body {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0.5rem;
+
+    /* مسافة بين العناصر داخل الجسم */
+
+}
+
+.input-section-body h4 {
+
+    font-size: 1.125rem;
+
+    /* حجم العنوان */
+
+    font-weight: 600;
+
+    color: var(--text-dark);
+
+    /* لون النص */
+
+    margin: 0;
+
+    /* إزالة أي margin افتراضي */
+
+    padding-right: 0.25rem;
+
+    /* مسافة صغيرة للعنوان */
+
+    transition: color 0.3s ease;
+
+    /* إضافة انتقال للون العنوان */
+
+}
+
+body.dark-mode .input-section-body h4 {
+
+    color: var(--text-light);
+
+}
+
+.input-section-body p {
+
+    color: var(--text-gray-600);
+
+    /* لون وصف القسم */
+
+    font-size: 0.875rem;
+
+    /* حجم الخط للوصف */
+
+    margin: 0;
+
+    /* إزالة أي margin افتراضي */
+
+    padding-right: 0.25rem;
+
+    /* مسافة صغيرة للوصف */
+
+    transition: color 0.3s ease;
+
+    /* إضافة انتقال للون الوصف */
+
+}
+
+body.dark-mode .input-section-body p {
+
+    color: var(--text-light);
+
+}
+
+.input-section-body input,
+
+.input-section-body textarea,
+
+.input-section-body select {
+
+    /* أضفنا select هنا */
+
+    padding: 0.5rem;
+
+    /* padding موحد لحقول الإدخال */
+
+    border: 1px solid var(--border-light);
+
+    border-radius: 0.25rem;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    color: var(--text-dark);
+
+    background-color: var(--card-light);
+
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+    /* إضافة انتقال للحدود والظل */
+
+}
+
+body.dark-mode .input-section-body input,
+
+body.dark-mode .input-section-body textarea,
+
+body.dark-mode .input-section-body select {
+
+    /* أضفنا select هنا */
+
+    background-color: var(--border-dark);
+
+    border-color: var(--border-dark);
+
+    color: var(--text-light);
+
+}
+
+/* الأنماط عند التركيز (Focus State) */
+
+.input-section.input-section-focused .input-section-top .material-symbols-outlined {
+
+    color: var(--primary-blue);
+
+    /* لون أزرق غامق للأيقونة عند التركيز */
+
+}
+
+.input-section.input-section-focused .input-section-top .section-divider-line {
+
+    background-color: var(--primary-blue);
+
+    /* لون أزرق غامق للخط عند التركيز */
+
+}
+
+.input-section.input-section-focused .input-section-body h4 {
+
+    color: var(--primary-blue);
+
+    /* لون أزرق غامق للعنوان عند التركيز */
+
+}
+
+.input-section.input-section-focused .input-section-body input,
+
+.input-section.input-section-focused .input-section-body textarea,
+
+.input-section.input-section-focused .input-section-body select {
+
+    /* أضفنا select هنا */
+
+    border-color: var(--primary-blue);
+
+    /* تغيير لون الحدود عند التركيز */
+
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.3);
+
+    /* إضافة ظل خفيف عند التركيز */
+
+}
+
+body.dark-mode .input-section.input-section-focused .input-section-top .material-symbols-outlined {
+
+    color: var(--primary-blue);
+
+}
+
+body.dark-mode .input-section.input-section-focused .input-section-top .section-divider-line {
+
+    background-color: var(--primary-blue);
+
+}
+
+body.dark-mode .input-section.input-section-focused .input-section-body h4 {
+
+    color: var(--primary-blue);
+
+}
+
+body.dark-mode .input-section.input-section-focused .input-section-body input,
+
+body.dark-mode .input-section.input-section-focused .input-section-body textarea,
+
+body.dark-mode .input-section.input-section-focused .input-section-body select {
+
+    /* أضفنا select هنا */
+
+    border-color: var(--primary-blue);
+
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.5);
+
+}
+
+/* أنماط البطاقة الجديدة لعرض المنتجات/الخدمات*/
+
+.product-item {
+
+    display: flex;
+
+    flex-direction: column;
+
+    /* لجعل المحتوى يتكدس عمودياً */
+
+    background-color: var(--card-light);
+
+    /* خلفية بيضاء للبطاقة*/
+
+    border-radius: 0.75rem;
+
+    /* حواف مستديرة أكثر بروزاً*/
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    /* ظل أكبر للبطاقة*/
+
+    overflow: hidden;
+
+    /* لإخفاء أي جزء من الصورة يتجاوز الحواف المستديرة*/
+
+    margin-bottom: 1.5rem;
+
+    /* مسافة بين البطاقات*/
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    /* انتقال سلس عند التفاعل*/
+
+    position: relative;
+
+    /* مهم جدًا: يسمح بوضع الأيقونة مطلقًا داخلها */
+
+}
+
+.product-item:hover {
+
+    transform: translateY(-5px);
+
+    /* رفع البطاقة قليلاً عند التمرير*/
+
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+    /* ظل أكبر عند التمرير*/
+
+}
+
+.product-item img {
+
+    width: 100%;
+
+    /* الصورة تملأ عرض البطاقة*/
+
+    height: 200px;
+
+    /* ارتفاع ثابت للصورة*/
+
+    object-fit: cover;
+
+    /* لضمان تغطية الصورة للمساحة دون تشوه*/
+
+    border-top-left-radius: 0.75rem;
+
+    /* حواف مستديرة للجزء العلوي من الصورة*/
+
+    border-top-right-radius: 0.75rem;
+
+}
+
+.product-item-content {
+
+    padding: 1.5rem;
+
+    /* padding للمحتوى داخل البطاقة*/
+
+    display: flex;
+
+    flex-direction: column;
+
+    flex-grow: 1;
+
+    /* لجعل المحتوى يملأ المساحة المتاحة */
+
+}
+
+.product-item-content h4 {
+
+    font-size: 1.5rem;
+
+    /* حجم أكبر لعنوان المنتج/الخدمة*/
+
+    font-weight: 700;
+
+    /* خط سميك*/
+
+    color: var(--primary-red);
+
+    /* لون أحمر مميز للعناوين*/
+
+    margin-bottom: 0.75rem;
+
+    /* مسافة أسفل العنوان*/
+
+}
+
+.product-item-content p {
+
+    font-size: 1rem;
+
+    /* حجم النص للوصف*/
+
+    color: var(--text-dark);
+
+    /* لون نص الوصف*/
+
+    line-height: 1.6;
+
+    /* تباعد الأسطر لتحسين القراءة*/
+
+    margin-bottom: 1rem;
+
+    /* مسافة أسفل الوصف*/
+
+    flex-grow: 1;
+
+    /* لجعل الوصف يملأ المساحة المتبقية */
+
+}
+
+/* الأنماط الجديدة لزر الأيقونة العلوية */
+
+.product-item-actions {
+
+    padding: 0;
+
+    text-align: left;
+
+    /* محاذاة لليسار في RTL */
+
+    position: absolute;
+
+    /* لجعل الأيقونة تتحرك بحرية داخل البطاقة */
+
+    top: 1rem;
+
+    /* مسافة من الأعلى */
+
+    left: 1rem;
+
+    /* مسافة من اليسار (في RTL) */
+
+    z-index: 5;
+
+    /* للتأكد من أنها تظهر فوق الصورة */
+
+}
+
+/* نمط الزر الذي يحمل الأيقونة - يجب أن يكون شفافًا وبلا حدود */
+
+.product-item-actions button {
+
+    background-color: transparent;
+
+    /* خلفية شفافة */
+
+    border: none;
+
+    /* بلا حدود */
+
+    padding: 0;
+
+    /* بلا بادينج */
+
+    width: auto;
+
+    /* عرض تلقائي ليناسب الأيقونة */
+
+    height: auto;
+
+    /* ارتفاع تلقائي ليناسب الأيقونة */
+
+    display: flex;
+
+    /* لضمان محاذاة الأيقونة بشكل صحيح إذا كان هناك نص */
+
+    justify-content: center;
+
+    align-items: center;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+
+    /* انتقال سلس عند التمرير */
+
+}
+
+.product-item-actions button:hover {
+
+    transform: scale(1.1);
+
+    /* تكبير طفيف عند التمرير */
+
+    background-color: transparent;
+
+    /* تبقى شفافة */
+
+}
+
+/* نمط الأيقونة نفسها داخل الزر */
+
+.product-item-actions button .material-symbols-outlined {
+
+    font-size: 2rem;
+
+    /* حجم كبير للأيقونة */
+
+    color: var(--primary-blue);
+
+    /* لون أزرق مميز */
+
+    transition: color 0.2s ease-in-out;
+
+}
+
+.product-item-actions button .material-symbols-outlined:hover {
+
+    color: var(--dark-blue);
+
+    /* لون أزرق أغمق عند التمرير */
+
+}
+
+/* الوضع الليلي للأيقونة العلوية */
+
+body.dark-mode .product-item-actions button .material-symbols-outlined {
+
+    color: #8ab4f8;
+
+    /* لون أزرق فاتح في الوضع الليلي */
+
+}
+
+body.dark-mode .product-item-actions button .material-symbols-outlined:hover {
+
+    color: #a8c7fa;
+
+    /* لون أزرق أفتح عند التمرير في الوضع الليلي */
+
+}
+
+/* الوضع الليلي للبطاقة */
+
+body.dark-mode .product-item {
+
+    background-color: var(--card-dark);
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+}
+
+body.dark-mode .product-item:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+
+}
+
+body.dark-mode .product-item-content h4 {
+
+    color: var(--light-red);
+
+    /* لون أحمر فاتح للعناوين في الوضع الليلي */
+
+}
+
+body.dark-mode .product-item-content p {
+
+    color: var(--text-light);
+
+    /* لون نص الوصف في الوضع الليلي */
+
+}
+
+/* أنماط أزرار الإجراءات السفلية (تعديل، حذف، تفاصيل) */
+
+.product-item .flex.justify-around button {
+
+    background-color: transparent;
+
+    /* خلفية شفافة */
+
+    border: none;
+
+    padding: 0.5rem;
+
+    /* بادينج خفيف لجعلها قابلة للنقر بسهولة */
+
+    border-radius: 9999px;
+
+    /* لجعلها دائرية */
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+.product-item .flex.justify-around button .material-symbols-outlined {
+
+    font-size: 1.5rem;
+
+    /* حجم الأيقونات السفلية */
+
+    color: var(--text-dark);
+
+    /* لون الأيقونات */
+
+    transition: color 0.2s ease-in-out;
+
+}
+
+.product-item .flex.justify-around button.view-details-btn:hover .material-symbols-outlined {
+
+    color: var(--primary-blue);
+
+    /* أزرق عند التمرير على أيقونة التفاصيل */
+
+}
+
+.product-item .flex.justify-around button.edit-btn:hover .material-symbols-outlined {
+
+    color: #4CAF50;
+
+    /* أخضر عند التمرير على أيقونة التعديل */
+
+}
+
+.product-item .flex.justify-around button.delete-btn:hover .material-symbols-outlined {
+
+    color: var(--primary-red);
+
+    /* أحمر عند التمرير على أيقونة الحذف */
+
+}
+
+/* الوضع الليلي للأيقونات السفلية */
+
+body.dark-mode .product-item .flex.justify-around button .material-symbols-outlined {
+
+    color: var(--text-light);
+
+}
+
+body.dark-mode .product-item .flex.justify-around button.view-details-btn:hover .material-symbols-outlined {
+
+    color: #8ab4f8;
+
+}
+
+body.dark-mode .product-item .flex.justify-around button.edit-btn:hover .material-symbols-outlined {
+
+    color: #81C784;
+
+}
+
+body.dark-mode .product-item .flex.justify-around button.delete-btn:hover .material-symbols-outlined {
+
+    color: var(--light-red);
+
+}
+
+/* أنماط شارة الخصم */
+
+.discount-badge {
+
+    position: absolute;
+
+    top: 10px;
+
+    right: 10px;
+
+    background-color: var(--green-success);
+
+    /* لون أخضر جذاب */
+
+    color: white;
+
+    padding: 5px 10px;
+
+    border-radius: 5px;
+
+    font-weight: bold;
+
+    font-size: 0.85rem;
+
+    z-index: 10;
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+    /* ظل خفيف للشارة */
+
+}
+
+/* الوضع الليلي لشارة الخصم */
+
+body.dark-mode .discount-badge {
+
+    background-color: #4CAF50;
+
+    /* درجة أخضر مناسبة للوضع الليلي */
+
+}
